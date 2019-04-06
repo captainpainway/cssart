@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Fox & the Grapes</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911');
+        body {
+            font-family: 'Goudy Bookletter 1911';
+            background: #dae1e7;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        #ground {
+            width: 100vw;
+            height: 80vh;
+            background: #7bc67b;
+            position: absolute;
+            top: 600px;
+            left: 0;
+        }
+        #branch1 {
+            position: absolute;
+            right: 0;
+            top: 100px;
+            background: #5a3921;
+            width: 200px;
+            height: 50px;
+        }
+        #branch2 {
+            position: absolute;
+            top: 63px;
+            background: #5a3921;
+            width: 200px;
+            height: 40px;
+            right: 173px;
+            transform: rotateZ(30deg);
+        }
+        #branch3 {
+            position: absolute;
+            top: 5px;
+            background: #5a3921;
+            width: 200px;
+            height: 30px;
+            right: 350px;
+            transform: rotateZ(10deg);
+        }
+        .leaf_bunch {
+            position: absolute;
+        }
+        .leaf {
+            position: absolute;
+            display: block;
+            width: 36px;
+            height: 60px;
+            background: #6b8c42;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        }
+        #grapes {
+            position: absolute;
+            right: 390px;
+            top: 70px;
+            animation: grapes 1s infinite alternate;
+        }
+        .grape {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #480032;
+            border-radius: 50%;
+        }
+        #fox {
+            position: absolute;
+            top: 600px;
+            right: 500px;
+        }
+        #fox_body {
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-top: 100px solid #ff8b6a;
+            border-radius: 50%;
+            transform: rotate(-45deg);
+        }
+        #fox_body_2 {
+            position: absolute;
+            background: #ff8b6a;
+            width: 113px;
+            height: 113px;
+            top: -28px;
+            right: -48px;
+        }
+        #fox_head {
+            position: absolute;
+            background: #ff8b6a;
+            width: 113px;
+            height: 113px;
+            top: -128px;
+            right: -48px;
+            animation: fox_head_animation 5s infinite alternate;
+            transform-origin: bottom left;
+        }
+        #fox_nose {
+            position: absolute;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-top: 12px solid #333;
+            border-left: 12px solid transparent;
+        }
+        .fox_ear {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 60px solid #ff8b6a;
+            border-radius: 50%;
+            transform: scale(0.6) rotate(128deg);
+            position: absolute;
+            top: -38px;
+        }
+        #fox_tail {
+            position: absolute;
+            right: 130px;
+            top: 63px;
+            transform-origin: right;
+            animation: tail_animation 4s infinite alternate;
+        }
+        #tail1 {
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-top: 100px solid #ff8b6a;
+            border-radius: 50%;
+            transform: scale(0.8) rotate(135deg);
+        }
+        #tail2 {
+            width: 90px;
+            height: 90px;
+            background: #ff8b6a;
+            position: absolute;
+            top: 22px;
+            left: -18px;
+        }
+        #tail3 {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-top: 100px solid #fff0de;
+            border-radius: 50%;
+            transform: scale(0.8) rotate(-45deg);
+            top: 34px;
+            left: -144px;
+        }
+        #fox_foot {
+            background: #ff8b6a;
+            width: 80px;
+            height: 40px;
+            border-top-left-radius: 80px;
+            border-top-right-radius: 80px;
+            position: absolute;
+            top: 45px;
+            right: -100px;
+        }
+        #text_wrapper {
+            position: absolute;
+            width: 50vw;
+            left: 50px;
+            top: 20px;
+        }
+        #text, #text2 {
+            color: #666666;
+            font-size: 24px;
+        }
+        h1 {
+            font-weight: normal;
+            font-size: 1.5em;
+        }
+        @media (max-width: 1280px) {
+            #text_wrapper {
+                width: 90vw;
+            }
+            #text {
+                width: 50vw;
+            }
+            #text2 {
+                position: absolute;
+                width: 26vw;
+                right: 0px;
+                top: 196px;
+            }
+        }
+        @media (max-width: 1000px) {
+            #text_wrapper {
+                top: 800px;
+                width: 85vw;
+            }
+            #text {
+                width: unset;
+            }
+            #text2 {
+                position: relative;
+                width: unset;
+                right: unset;
+                top: unset;
+            }
+        }
+        @keyframes grapes {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(5deg);
+            }
+        }
+        @keyframes tail_animation {
+            0% {
+                transform: rotate(0deg);
+            }
+            40% {
+                transform: rotate(40deg);
+            }
+            60% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+        @keyframes fox_head_animation {
+            0% {
+                transform: rotate(0deg);
+            }
+            60% {
+                transform: rotate(-5deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="ground"></div>
+    <div id="branch1"></div>
+    <div id="branch2"></div>
+    <div id="branch3"></div>
+    <div id="grapes">
+        <div class="grape"></div>
+        <div class="grape" style="left: 20px; top: 10px;"></div>
+        <div class="grape" style="left: -20px; top: 10px;"></div>
+        <div class="grape" style="top: 20px; background: #56003c"></div>
+        <div class="grape" style="left: 30px; top: 30px;"></div>
+        <div class="grape" style="left: -30px; top: 30px;"></div>
+        <div class="grape" style="left: 20px; top: 30px; background: #600043"></div>
+        <div class="grape" style="left: -20px; top: 30px; background: #600043"></div>
+        <div class="grape" style="left: 20px; top: 50px; background: #600043"></div>
+        <div class="grape" style="left: -20px; top: 50px; background: #600043"></div>
+        <div class="grape" style="top: 60px; background: #600043"></div>
+        <div class="grape" style="top: 40px; background: #72004f"></div>
+        <div class="grape" style="top: 70px; background: #7d0057"></div>
+    </div>
+    <div class="leaf_bunch" style="right: 588px; transform: rotate(260deg); top: 14px;">
+        <div class="leaf" style="transform: rotateZ(50deg); left: 30px; top: 13px;"></div>
+        <div class="leaf" style="transform: rotateZ(-50deg); left: -30px; top: 13px;"></div>
+        <div class="leaf" style="background: #7aa04b"></div>
+    </div>
+    <div class="leaf_bunch" style="right: 550px; transform: rotate(230deg); top: 54px;">
+        <div class="leaf" style="transform: rotateZ(50deg); left: 30px; top: 13px;"></div>
+        <div class="leaf" style="transform: rotateZ(-50deg); left: -30px; top: 13px;"></div>
+        <div class="leaf" style="background: #7aa04b"></div>
+    </div>
+    <div class="leaf_bunch" style="right: 350px; transform: rotate(20deg); top: -34px;">
+        <div class="leaf" style="transform: rotateZ(50deg); left: 30px; top: 13px;"></div>
+        <div class="leaf" style="transform: rotateZ(-50deg); left: -30px; top: 13px;"></div>
+        <div class="leaf" style="background: #7aa04b"></div>
+    </div>
+    <div class="leaf_bunch" style="right: 350px; transform: rotate(190deg); top: 114px;">
+        <div class="leaf" style="transform: rotateZ(50deg); left: 30px; top: 13px;"></div>
+        <div class="leaf" style="transform: rotateZ(-50deg); left: -30px; top: 13px;"></div>
+        <div class="leaf" style="background: #7aa04b"></div>
+    </div>
+    <div class="leaf_bunch" style="right: 200px; transform: rotate(10deg); top: 40px;">
+        <div class="leaf" style="transform: rotateZ(50deg); left: 30px; top: 13px;"></div>
+        <div class="leaf" style="transform: rotateZ(-50deg); left: -30px; top: 13px;"></div>
+        <div class="leaf" style="background: #7aa04b"></div>
+    </div>
+    <div class="leaf_bunch" style="right: 200px; transform: rotate(200deg); top: 200px;">
+        <div class="leaf" style="transform: rotateZ(50deg); left: 30px; top: 13px;"></div>
+        <div class="leaf" style="transform: rotateZ(-50deg); left: -30px; top: 13px;"></div>
+        <div class="leaf" style="background: #7aa04b"></div>
+    </div>
+    <div id="fox">
+        <div id="fox_body"></div>
+        <div id="fox_body_2"></div>
+        <div id="fox_head">
+            <div id="fox_nose"></div>
+            <div class="fox_ear" style="right: 40px;"></div>
+            <div class="fox_ear" style="right: -8px; top: -32px;"></div>
+        </div>
+        <div id="fox_tail">
+            <div id="tail1"></div>
+            <div id="tail2"></div>
+            <div id="tail3"></div>
+        </div>
+        <div id="fox_foot"></div>
+    </div>
+    <div id="text_wrapper">
+        <div id="text">
+            <h1>The Fox & the Grapes</h1>
+            <p>A Fox one day spied a beautiful bunch of ripe grapes hanging from a vine trained along the branches of a tree. The grapes seemed ready to burst with juice, and the Fox's mouth watered as he gazed longingly at them.</p>
+
+            <p>The bunch hung from a high branch, and the Fox had to jump for it. The first time he jumped he missed it by a long way. So he walked off a short distance and took a running leap at it, only to fall short once more. Again and again he tried, but in vain.</p>
+        </div>
+        <div id="text2">
+            <p>Now he sat down and looked at the grapes in disgust.</p>
+
+            <p>"What a fool I am," he said. "Here I am wearing myself out to get a bunch of sour grapes that are not worth gaping for."</p>
+
+            <p>And off he walked very, very scornfully.</p>
+        </div>
+    </div>
+</body>
+</html>
