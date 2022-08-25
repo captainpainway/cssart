@@ -1,0 +1,490 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+}
+* {
+    position: absolute;
+}
+/*
+Putting the head inside of a circle background.
+ */
+#background {
+    left: calc(50vw - 440px);
+    top: calc(50vh - 440px);
+    width: 800px;
+    height: 800px;
+    background-color: white;
+    border-radius: 50%;
+    border: 40px double black;
+}
+/*
+Centering the head in the middle of the screen.
+ */
+#head {
+    top: 260px;
+    left: 200px;
+    width: 400px;
+    height: 400px;
+    background-color: black;
+    border-radius: 50%;
+    animation: 10s ease infinite laugh_head;
+}
+/*
+Adding the ears as before and after elements.
+*/
+#head::before {
+    content: '';
+    position: absolute;
+    left: -100px;
+    top: -100px;
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    border-radius: 50%;
+}
+#head::after {
+    content: '';
+    position: absolute;
+    left: 300px;
+    top: -100px;
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    border-radius: 50%;
+}
+/*
+The face is slightly off-white, and each eye has an oval shape.
+Around the mouth is another horizontal ellipse.
+ */
+#face {
+    left: 50px;
+    top: 130px;
+    width: 300px;
+    height: 250px;
+    background-color: whitesmoke;
+    border-radius: 50%;
+    transform: scale(1.08); /* Thought his face looked a bit small! */
+}
+/*
+Using before and after again for the eye ovals;
+ */
+#face::before {
+    content: '';
+    position: absolute;
+    top: -70px;
+    left: 5px;
+    width: 160px;
+    height: 200px;
+    background-color: whitesmoke;
+    border-radius: 50%;
+}
+#face::after {
+    content: '';
+    position: absolute;
+    top: -70px;
+    left: 135px;
+    width: 160px;
+    height: 200px;
+    background-color: whitesmoke;
+    border-radius: 50%;
+}
+/*
+Doing the eyes separately in case I want to animate them.
+ */
+#left_eye {
+    top: 90px;
+    left: 90px;
+    width: 80px;
+    height: 120px;
+    background-color: black;
+    border-radius: 50%;
+    animation: 10s linear infinite blink;
+}
+#left_eye::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-left: 40px solid whitesmoke;
+    border-bottom: 20px solid transparent;
+}
+#right_eye {
+    top: 90px;
+    left: 230px;
+    width: 80px;
+    height: 120px;
+    background-color: black;
+    border-radius: 50%;
+    animation: 10s linear infinite blink;
+}
+#right_eye::after {
+    content: '';
+    position: absolute;
+    position: absolute;
+    top: 40px;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-left: 40px solid whitesmoke;
+    border-bottom: 20px solid transparent;
+}
+/*
+Ellipse nose.
+ */
+#nose {
+    top: 210px;
+    left: 175px;
+    width: 50px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: black;
+}
+/*
+Half-circle smile.
+ */
+#smile {
+    top: 240px;
+    left: 165px;
+    height: 100px;
+    width: 50px;
+    border-radius: 100px 0 0 100px;
+    border-top: 20px solid black;
+    border-left: 20px solid black;
+    border-bottom: 20px solid black;
+    transform: rotate(-90deg);
+    animation: 10s linear infinite smile;
+}
+#smile::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50px;
+    width: 10px;
+    height: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: black;
+}
+#smile::after {
+    content: '';
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    width: 10px;
+    height: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: black;
+}
+/*
+Adding a laughing animation as well.
+ */
+#laugh {
+    top: 265px;
+    left: 125px;
+    width: 150px;
+    height: 100px;
+    background-color: black;
+    border-radius: 5% 5% 50% 50%;
+    opacity: 0;
+    animation: 10s ease-in infinite laugh;
+}
+#tongue {
+    top: 53px;
+    left: 35px;
+    width: 80px;
+    height: 40px;
+    background-color: #a30000;
+    border-radius: 50%;
+    opacity: 0;
+    animation: 10s ease-in infinite laugh;
+}
+#cheeks {
+    top: 220px;
+    left: 80px;
+    width: 40px;
+    height: 40px;
+    background-color: pink;
+    border-radius: 50%;
+    opacity: 0;
+    animation: 10s ease-in-out infinite cheeks;
+}
+#cheeks::after {
+    content: '';
+    position: absolute;
+    left: 200px;
+    width: 40px;
+    height: 40px;
+    background-color: pink;
+    border-radius: 50%;
+}
+#laugh_left_eye {
+    top: 90px;
+    left: 95px;
+    height: 50px;
+    width: 50px;
+    border-radius: 100px 0 0 100px;
+    border-top: 20px solid black;
+    border-left: 20px solid black;
+    border-bottom: 20px solid black;
+    transform: rotate(90deg);
+    opacity: 0;
+    animation: 10s linear infinite laugh;
+}
+#laugh_left_eye::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50px;
+    width: 10px;
+    height: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: black;
+}
+#laugh_left_eye::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 10px;
+    height: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: black;
+}
+#laugh_right_eye {
+    top: 90px;
+    left: 235px;
+    height: 50px;
+    width: 50px;
+    border-radius: 100px 0 0 100px;
+    border-top: 20px solid black;
+    border-left: 20px solid black;
+    border-bottom: 20px solid black;
+    transform: rotate(90deg);
+    opacity: 0;
+    animation: 10s linear infinite laugh;
+}
+#laugh_right_eye::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50px;
+    width: 10px;
+    height: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: black;
+}
+#laugh_right_eye::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 10px;
+    height: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: black;
+}
+
+/*
+Blink animation and remove eyes for laugh.
+ */
+@keyframes blink {
+    0% {
+        transform: scaleY(1);
+    }
+    10.8% {
+        transform: scaleY(1);
+    }
+    11% {
+        transform: scaleY(0.05);
+    }
+    11.2% {
+        transform: scaleY(1);
+    }
+    30.8% {
+        transform: scaleY(1);
+    }
+    31% {
+        transform: scaleY(0.05);
+    }
+    31.2% {
+        transform: scaleY(1);
+    }
+    40.8% {
+        transform: scaleY(1);
+    }
+    41% {
+        transform: scaleY(0.05);
+    }
+    41.2% {
+        transform: scaleY(1);
+    }
+    50.8% {
+        opacity: 1;
+    }
+    51% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    80.2% {
+        opacity: 1;
+    }
+    90.8% {
+        transform: scaleY(1);
+    }
+    91% {
+        transform: scaleY(0.05);
+    }
+    91.2% {
+        transform: scaleY(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/*
+Hide the smile when laughing.
+ */
+@keyframes smile {
+    0% {
+        opacity: 1;
+    }
+    50.8% {
+        opacity: 1;
+    }
+    51% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    80.2% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/*
+Add laughing face.
+ */
+@keyframes laugh {
+    0% {
+        opacity: 0;
+    }
+    50.8% {
+        opacity: 0;
+    }
+    51% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    80.2% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+/*
+Fade in/out cheeks.
+ */
+@keyframes cheeks {
+    0% {
+        opacity: 0;
+    }
+    45% {
+        opacity: 0;
+    }
+    51% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+/*
+Bounce the head when laughing.
+ */
+@keyframes laugh_head {
+    51% {
+        transform: translateY(0);
+    }
+    52% {
+        transform: translateY(5px);
+    }
+    53% {
+        transform: translateY(0);
+    }
+    54% {
+        transform: translateY(5px);
+    }
+    55% {
+        transform: translateY(0);
+    }
+    57% {
+        transform: translateY(5px);
+    }
+    58% {
+        transform: translateY(0);
+    }
+    59% {
+        transform: translateY(5px);
+    }
+    60% {
+        transform: translateY(0);
+    }
+    62% {
+        transform: translateY(5px);
+    }
+    63% {
+        transform: translateY(0);
+    }
+    64% {
+        transform: translateY(5px);
+    }
+    65% {
+        transform: translateY(0);
+    }
+    66% {
+        transform: translateY(5px);
+    }
+    67% {
+        transform: translateY(0);
+    }
+    68% {
+        transform: translateY(5px);
+    }
+    70% {
+        transform: translateY(0);
+    }
+    72% {
+        transform: translateY(5px);
+    }
+    75% {
+        transform: translateY(0);
+    }
+    77% {
+        transform: translateY(5px);
+    }
+    80% {
+        transform: translateY(0);
+    }
+}
